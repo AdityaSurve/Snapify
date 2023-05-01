@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -13,9 +13,18 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import GoogleButton from 'react-google-button'
-import { app, database, storage } from '../../components/firebaseConfig'
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
+import GoogleButton from "react-google-button";
+import { app, database, storage } from "../../components/firebaseConfig";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  onAuthStateChanged,
+  signOut,
+  updateProfile,
+} from "firebase/auth";
 
 function Copyright(props) {
   return (
@@ -40,43 +49,43 @@ const theme = createTheme();
 export default function SignInSide() {
   let navigate = useNavigate();
   const auth = getAuth();
-  let googleProv = new GoogleAuthProvider()
-  const handleGoogle=()=>{
+  let googleProv = new GoogleAuthProvider();
+  const handleGoogle = () => {
     signInWithPopup(auth, googleProv) //google pop up
-        .then((result) => {
-          const credential = GoogleAuthProvider.credentialFromResult(result);
-          const token = credential.accessToken;
-          // The signed-in user info.
-          const user = result.user;
-          // const user=userCredential.user;
-          console.log(user);
-          navigate('/explore')
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          // ..
-          console.log(errorMessage);
-        });
-  }
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // const user=userCredential.user;
+        console.log(user);
+        navigate("/explore");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+        console.log(errorMessage);
+      });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    signInWithEmailAndPassword(auth, data.get("email"),data.get("password"))
-    .then((userCredential) => {
-      // // Signed in 
-      const user=userCredential.user;
-      // ...
-      // console.log(user);
-      navigate('/explore')
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
-      console.log(errorMessage);
-    });
+    signInWithEmailAndPassword(auth, data.get("email"), data.get("password"))
+      .then((userCredential) => {
+        // // Signed in
+        const user = userCredential.user;
+        // ...
+        // console.log(user);
+        navigate("/explore");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+        console.log(errorMessage);
+      });
   };
 
   return (
@@ -86,10 +95,7 @@ export default function SignInSide() {
         component="main"
         sx={{
           height: "100vh",
-          padding:"100px",
-        
-         
-
+          padding: "100px",
         }}
       >
         <CssBaseline />
@@ -97,7 +103,7 @@ export default function SignInSide() {
           item
           xs={false}
           sm={4}
-          md={7}
+          md={5}
           sx={{
             backgroundImage:
               "url(https://static.wixstatic.com/media/0b340f_b8c3a4e8dde643788d75c83762ef90fb~mv2_d_1937_1731_s_2.jpg/v1/fill/w_1336,h_1426,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/0b340f_b8c3a4e8dde643788d75c83762ef90fb~mv2_d_1937_1731_s_2.jpg)",
@@ -153,13 +159,13 @@ export default function SignInSide() {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
-              <GoogleButton 
-                 style={{ 
-                 width:"450px",
-                 height:"50px  "
-             }}
-                
-              onClick={handleGoogle}/>
+              <GoogleButton
+                style={{
+                  width: "450px",
+                  height: "50px  ",
+                }}
+                onClick={handleGoogle}
+              />
               <Button
                 type="submit"
                 fullWidth
