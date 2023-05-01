@@ -84,7 +84,7 @@ export const Explore = ({ newid, setnewid }) => {
   }, []);
   let index = cardarr.indexOf("alp");
   return (
-    <div className="bg-[#61876E] ">
+    <div className="bg-[#022532] ">
       
       <Autocomplete
         disablePortal

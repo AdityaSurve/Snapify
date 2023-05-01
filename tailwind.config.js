@@ -14,6 +14,7 @@ module.exports = {
       fontFamily: {
         jost: ["Jost", "sans-serif"],
         ibm: ["IBM Plex Serif", "sans-serif"],
+        playfair:['Playfair Display', "sans-serif"]
         
         
       },
