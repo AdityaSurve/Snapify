@@ -1,0 +1,166 @@
+#chatcont{
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 80%;
+    width: 75%;
+    margin-bottom: 5vh;
+    display: flex;
+    overflow: hidden;
+}
+
+.sidebar{
+    flex: 1;
+    border-right: 1px solid black;
+    background-color:aliceblue;
+}
+
+.openchat{
+    flex: 2.5;
+}
+
+.chatnav{
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    background-color:black;
+    color: white;
+    height: 8%;
+    padding: 4px;
+
+
+}
+
+#navimg,#searchimage{
+    background-color: #61876E;
+    border-radius: 50%;
+    height: 2vw;
+    width: 2vw;
+    object-fit: cover;
+}
+/* #navimg1{
+    background-color: brown;
+    height: 7vw;
+    width: 7vw;
+    object-fit: cover;
+} */
+
+#search{
+    border-bottom: 1px solid black;
+}
+
+#searchinput{
+    background-color: transparent;
+    outline: none;
+    color: black;
+    width:20vw ;
+}
+.searchform{
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+.userchat{
+    height: 7vh;
+    padding: 10px;
+    display: flex;
+    align-items:center;
+    gap: 10px;
+    cursor: pointer;
+}
+.userchat:hover{
+    background-color:mediumturquoise;
+}
+
+.span1{
+    font-size: large;
+}
+.userchatinfo{
+    padding-top: 10px;
+    margin-top: 3px;
+}
+.openchatinfo{
+    background-color:black;
+    color: white;
+    height: 8%;
+    display: flex;
+    align-items: center;
+}
+.openchatspan{
+    margin-left: 1vw;
+}
+
+.messages{
+    background-color: aliceblue;
+    height: 66.5vh;
+    overflow: scroll;
+}
+
+.Inputfield{
+    height: 7vh;
+    background-color:floralwhite;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#sendinput{
+    height: 3.9vh;
+    width: 40vw;
+    border: none;
+    outline: none;
+    font-size:large;
+}
+
+#send{
+    margin-right: 1vw;
+}
+.send{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.Message{
+    display: flex;
+    gap: 20px
+}
+
+.messageinfo{
+    display: flex;
+    flex-direction: column;
+    color: grey;
+    margin-bottom: 5vh;
+    padding: 0px 15px;
+}
+.messagecont{
+    max-width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.text{
+    background-color:white;
+    padding: 10px 20px;
+    border-radius: 0px 10px 10px 10px;
+    max-width: max-content;
+}
+
+.owner{
+    flex-direction: row-reverse;
+}
+.textowner{
+    background-color:cornflowerblue;
+    padding: 10px 20px;
+    border-radius: 10px 0px 10px 10px;
+    max-width: max-content;
+}
+
+.messagecontowner{
+    max-width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
