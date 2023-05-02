@@ -72,8 +72,8 @@ export default function EventCard() {
     }
   return (
     <div className="flex flex-col">
-      <div className="grid grid-2 gap-8 p-10 justify-center items-center">
-        <div className="flex gap-2">
+      <div className="grid grid-cols-2 gap-8 p-10 justify-center items-center">
+        <div className="flex flex-col gap-2">
           <button
             className="bg-[#61876E] hover:bg-[#AA5656] border-2  rounded-2xl text-white font-jost py-2 px-4 mt-6 w-[300px] shadow-black shadow-lg hover:scale-110 transition duration-300 ease-in-out"
             onClick={getEvents}

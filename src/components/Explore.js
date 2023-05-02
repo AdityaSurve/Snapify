@@ -83,8 +83,10 @@ export const Explore = ({ newid, setnewid }) => {
     getImages();
   }, []);
   let index = cardarr.indexOf("alp");
+
+
   return (
-    <div className="bg-[#022532] ">
+    <div className="bg-[#022532] w-full  pb-24">
       
       <Autocomplete
         disablePortal
@@ -95,13 +97,14 @@ export const Explore = ({ newid, setnewid }) => {
           // setind(index)
           console.log(index.ind);
           setind(index.ind);
-          // nav("/profile")
+          // nav("/profile") 
         }}
-        sx={{ width: 300,marginTop:5 ,marginLeft:70,backgroundColor:"white"}}
-        renderInput={(params) => <TextField {...params} label="Search" />}
+        sx={{ width: 300,marginTop:5 ,backgroundColor:"white",}}
+        className="ml-[10%] md:ml-[40%] rounded-xl "
+        renderInput={(params) => <TextField {...params} label="Search"/>}
       />
 
-      <div className="md:grid md:grid-cols-2 p-12  w-full justify-center">
+      <div className="md:grid md:grid-cols-2  md:p-12  w-full justify-center">
         {cardarr[ind]?.map((item, index) => {
           return (
             <Post
