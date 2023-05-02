@@ -127,7 +127,7 @@ export default function SignUp() {
     <ThemeProvider theme={theme}>
       <ParticlesComponent className="z-0" />
       <div className="bg-[#022532] h-screen w-screen z-[10000] flex justify-center items-center">
-        <div className="bg-[#ffffff] h-[80%] w-[40%] p-5 pt-7 rounded-md z-[10000]">
+        <div className="bg-[#ffffff]  h-[70%] w-[35%] p-5 pt-7 rounded-md z-[10000]">
           <Container component="main" maxWidth="xs">
             <Box
               sx={{
@@ -149,8 +149,8 @@ export default function SignUp() {
                 onSubmit={handleSubmit}
                 sx={{ mt: 3 }}
               >
-                <Grid container spacing={1}>
-                  <Grid item xs={12} sm={6}>
+                <Grid container spacing={1} >
+                  <Grid item xs={12} sm={6} className="">
                     <TextField
                       autoComplete="given-name"
                       name="firstName"

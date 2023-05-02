@@ -183,9 +183,9 @@ export default function Home() {
           <br /> one shot at a time
         </span>
         <Link to="/signup">
-        <button className="bg-[#61876E] hover:bg-[#AA5656] border-2  rounded-2xl text-white font-jost py-2 px-4 mt-6 w-[300px] shadow-black shadow-lg hover:scale-110 transition duration-300 ease-in-out">
-          GET STARTED
-        </button>
+          <button className="bg-[#002732] hover:bg-[#004B61] border-2  rounded-2xl text-white font-jost py-2 px-4 mt-6 w-[300px] shadow-black shadow-lg hover:scale-110 transition duration-300 ease-in-out">
+            GET STARTED
+          </button>
         </Link>
       </div>
     </div>

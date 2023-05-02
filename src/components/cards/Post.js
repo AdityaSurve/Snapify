@@ -205,7 +205,7 @@ export const Post = ({
   return (
     <div
       style={{ position: "relative" }}
-      className="mt-10 ml-10 rounded-xl p-3 w-[640px] "
+      className="mt-10 ml-10 p-3 w-[300px] md:w-[640px] "
     >
       <div className="flex flex-row justify-between">
       <div
@@ -233,10 +233,10 @@ export const Post = ({
       <img
         draggable="false"
         src={imageurl}
-        className="w-[200px] md:w-[652px] md:h-[360px] border-8 shadow-lg border-[#003240] mt-2 "
+        className="w-[400px] md:w-[652px] md:h-[360px] border-8 shadow-lg border-[#003240] mt-2 "
       ></img>
       {watermark !== 0 && (
-        <p className="absolute text-3xl text-white font-semibold top-[350px] left-[70%] font-grotesk "
+        <p className="absolute text-xl md:text-3xl text-white font-semibold top-[160px] left-[55%] md:top-[350px] md:left-[70%] font-grotesk "
         >
           watermark
         </p>
@@ -264,14 +264,14 @@ export const Post = ({
         </div>
         {isShown && (
           <div className="flex flex-col">
-            <div className="text-white mt-2 text-xl font-playfair ">
+            <div className="text-white mt-2 text-sm md:text-xl font-grotesk ">
               {data.caption}
             </div>
             <div className="text-white mt-2 text-xl justify-between flex flex-row">
               <p className="text-md text-white font-ibm flex gap-2  ">
                 {data.tags.map((item) => {
                   return (
-                    <p class=" text-white font-semibold ">
+                    <p class=" text-white font-semibold text-sm md:text-xl">
                       #{item}
                     </p>
                   );
