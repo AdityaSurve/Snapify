@@ -2,7 +2,7 @@ import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
+import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
@@ -25,6 +25,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import ParticlesComponent from "../../components/Particles";
 
 function Copyright(props) {
   return (
@@ -90,107 +91,96 @@ export default function SignInSide() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid
-        container
-        component="main"
-        sx={{
-          height: "100vh",
-          padding: "100px",
-        }}
-      >
-        <CssBaseline />
-        <Grid
-          item
-          xs={false}
-          sm={4}
-          md={5}
-          sx={{
-            backgroundImage:
-              "url(https://static.wixstatic.com/media/0b340f_b8c3a4e8dde643788d75c83762ef90fb~mv2_d_1937_1731_s_2.jpg/v1/fill/w_1336,h_1426,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/0b340f_b8c3a4e8dde643788d75c83762ef90fb~mv2_d_1937_1731_s_2.jpg)",
-            backgroundRepeat: "no-repeat",
-
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <Box
-            sx={{
-              my: 8,
-              mx: 4,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
-              Sign in
-            </Typography>
+      <ParticlesComponent />
+      <div className="bg-[#022532] h-screen w-screen z-[10000] flex justify-center items-center overflow-hidden">
+        <div className="bg-[#ffffff] h-[80%] w-[40%]  rounded-md z-[10000]">
+          <Container component="main" maxWidth="xs">
             <Box
-              component="form"
-              noValidate
-              onSubmit={handleSubmit}
-              sx={{ mt: 1 }}
+              sx={{
+                // marginTop: 8,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
             >
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
-              <GoogleButton
-                style={{
-                  width: "450px",
-                  height: "50px  ",
+              <Box
+                sx={{
+                  my: 8,
+                  mx: 4,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
                 }}
-                onClick={handleGoogle}
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
-              </Button>
-              <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link href="/signup" variant="body2">
-                    {"Don't have an account? Sign Up"}
-                  </Link>
-                </Grid>
-              </Grid>
-              <Copyright sx={{ mt: 5 }} />
+                <div className="flex flex-row gap-5 justify-center items-center">
+                  <h1 className="text-xl font-semibold">Sign in</h1>
+                  <Avatar sx={{ bgcolor: "#022532" }}>
+                    <LockOutlinedIcon />
+                  </Avatar>
+                </div>
+                <Box
+                  component="form"
+                  noValidate
+                  onSubmit={handleSubmit}
+                  sx={{ mt: 1 }}
+                >
+                  <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                    autoFocus
+                  />
+                  <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                  />
+                  <FormControlLabel
+                    control={<Checkbox value="remember" color="primary" />}
+                    label="Remember me"
+                  />
+                  <GoogleButton
+                    style={{
+                      width: "450px",
+                      height: "50px  ",
+                    }}
+                    onClick={handleGoogle}
+                  />
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2 }}
+                  >
+                    Sign In
+                  </Button>
+                  <Grid container>
+                    <Grid item xs>
+                      <Link href="#" variant="body2">
+                        Forgot password?
+                      </Link>
+                    </Grid>
+                    <Grid item>
+                      <Link href="/signup" variant="body2">
+                        {"Don't have an account? Sign Up"}
+                      </Link>
+                    </Grid>
+                  </Grid>
+                </Box>
+              </Box>
             </Box>
-          </Box>
-        </Grid>
-      </Grid>
+          </Container>
+        </div>
+      </div>
     </ThemeProvider>
   );
 }
