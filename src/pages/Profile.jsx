@@ -263,14 +263,14 @@ export const Profile = ({ newid, setnewid }) => {
               <div className="">
                 <img
                   src={fireuser?.imageURL}
-                  className="h-[200px] w-[200px] rounded-full shadow-lg shadow-black"
+                  className="h-[300px] w-[300px] mb-6 mt-12 rounded-full shadow-lg shadow-black-opacity-30"
                 />
               </div>
             ) : (
               <label htmlFor="image">
                 <img
                   src={ProfilePic}
-                  className="h-[400px] w-[400px] mb-6 mt-12"
+                  className="h-[300px] w-[300px] mb-6 mt-12"
                 />
               </label>
             )}
@@ -307,14 +307,15 @@ export const Profile = ({ newid, setnewid }) => {
             <div className="  ">{profiledata?.email}</div>
           </div>
 
-          <div className="flex flex-row  justify-start pt-10 font-jost text-white text-2xl">
-            <div className=""></div>
+          <div className="flex flex-row justify-start pt-10 font-jost text-white text-2xl">
+            <div className="">Bio: </div>
+            <br></br>
             {fireuser?.bio ? (
               <div className="">{fireuser.bio}</div>
             ) : (
               <input
                 type="text"
-                className="h-8 bg-[#FE9A3E] p-4 rounded-xl w-full hover:shadow-xl backdrop-blur-sm bg-gray-800/30 self-end border-gray-400/50 border"
+                className="h-8 break-all bg-[#FE9A3E] p-4 m-4 rounded-xl w-full h-[100%] hover:shadow-xl backdrop-blur-sm bg-gray-800/30 self-end border-gray-400/50 border"
                 onChange={(event) => handleInput(event)}
                 name="bio"
               ></input>
@@ -327,7 +328,7 @@ export const Profile = ({ newid, setnewid }) => {
             ) : (
               <input
                 type="text"
-                className="h-8"
+                className="h-8 bg-[#002732]"
                 onChange={(event) => handleInput(event)}
                 name="type"
               ></input>
@@ -354,13 +355,13 @@ export const Profile = ({ newid, setnewid }) => {
       </div>
       {/* <div class=""> */}
       {user.uid === newid ? (
-        <form class="bg-[#61876E] p-6 shadow-md ">
+        <form class="bg-[#FFFFFF] opacity-0.2 p-6 shadow-md">
           <div class="mb-4">
             <label class="block text-black font-bold mb-2" for="caption">
               Description
             </label>
             <textarea
-              class="form-textarea mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              class="form-textarea p-2 mt-1 block w-[60%] rounded-md border border-gray-300 shadow-none focus:border-[#002732]-500 focus:ring focus:ring-[#002732] focus:ring-opacity-100"
               id="caption"
               name="caption"
               onChange={(event) => handleInput1(event)}
@@ -371,7 +372,7 @@ export const Profile = ({ newid, setnewid }) => {
               Image
             </label>
             <input
-              class="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              class="form-input p-2 mt-1 block w-[20%] rounded-md border border-gray-300 shadow-none focus:border-[#002732]-500 focus:ring focus:ring-[#002732] focus:ring-opacity-100"
               type="file"
               name="image1"
               id="image1"
@@ -381,7 +382,7 @@ export const Profile = ({ newid, setnewid }) => {
             ></input>
           </div>
           <div class="mb-4">
-            <div class="flex flex-wrap">
+            <div class="">
               <label for="tags" class="block text-black  font-bold mb-2 mr-2">
                 Tags:
               </label>
@@ -389,7 +390,7 @@ export const Profile = ({ newid, setnewid }) => {
                 type="text"
                 name="tag1"
                 id="tag1"
-                class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:shadow-outline"
+                class="w-[20%] px-3 py-2 mr-6 text-gray-700 border rounded-lg focus:outline-[#002732] focus:shadow-outline"
                 placeholder="Add tag 1"
                 onChange={(event) => handleInput1(event)}
               ></input>
@@ -397,7 +398,7 @@ export const Profile = ({ newid, setnewid }) => {
                 type="text"
                 name="tag2"
                 id="tag2"
-                class="w-full px-3 py-2 text-gray-700 mt-2 border rounded-lg focus:outline-none focus:shadow-outline"
+                class="w-[20%] px-3 py-2 text-gray-700 mt-2 border rounded-lg focus:outline-[#002732] focus:shadow-outline"
                 placeholder="Add tag 2"
                 onChange={(event) => handleInput1(event)}
               ></input>
@@ -406,7 +407,7 @@ export const Profile = ({ newid, setnewid }) => {
           <div class="flex justify-end">
             <button
               onClick={handleUpdate1}
-              class="bg-[#AA5656]  text-white font-bold py-2 px-4 rounded"
+              class="bg-[#002732]  text-white font-bold py-2 px-4 rounded"
             >
               Add Post
             </button>
@@ -460,10 +461,8 @@ export const Profile = ({ newid, setnewid }) => {
       )}
       {/* </div> */}
 
-      <div className="  bg-[#61876E]  p-4" id="gallery">
-        <p className="font-jost text-black font-bold text-[100px]">
-          My Gallery
-        </p>
+      <div className="  bg-[#002732]  p-4" id="gallery">
+        <p className="font-jost text-white font-bold text-[60px]">My Gallery</p>
         <div className="md:grid md:grid-cols-2 items-center gap-16 w-full justify-center">
           {cardarr?.map((item, index) => {
             // console.log(item.array);
