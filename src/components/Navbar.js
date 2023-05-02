@@ -77,8 +77,8 @@ function Navbar({ newid, setnewid }) {
   };
 
   return (
-    <div className="bg-[#00000070] fixed z-[10000]">
-      <div className="h-[100px] w-[100px] top-10 right-2.5 p-8 scale-150 md:hidden ">
+    <div className="bg-[#00000070] fixed z-[10000] ">
+      <div className="h-1 md:h-[100px] w-[100px] top-10 right-2.5 p-5 md:p-8 scale-150 md:hidden ">
         <MenuTwoToneIcon style={{ color: "#FFFFFF" }} onClick={showMenu} />
       </div>
       <div className="flex flex-row justify-around w-screen p-3">
@@ -123,7 +123,6 @@ function Navbar({ newid, setnewid }) {
           </Link>
           {/* <div onClick={handlecuruserprofile} className="text-white hover:text-[#F5F5F5] hover:scale-110 transition duration-300 ease-in-out  text-black text-xl font-medium font-jost ">PROFILE</div> */}
           {/* search field */}
-
           <form>
             <label
               for="default-search"
