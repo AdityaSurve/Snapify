@@ -74,13 +74,13 @@ export default function EventCard() {
       <div className="grid grid-2 gap-8 p-10 justify-center items-center">
         <div className="flex gap-8">
           <button
-            className="bg-[#002732] hover:bg-[#004B61] border-2  rounded-2xl text-white font-jost py-2 px-4 mt-6 w-[300px] shadow-black shadow-lg hover:scale-110 transition duration-300 ease-in-out"
+            className="bg-[#002732] hover:bg-[#004B61] border-2  rounded-2xl text-white font-jost py-2 px-4 mt-6 w-[300px] shadow-none hover:scale-110 transition duration-300 ease-in-out"
             onClick={getEvents}
           >
             INCOMING EVENTS
           </button>
           <button
-            className="bg-[#002732] hover:bg-[#004B61] border-2  rounded-2xl text-white font-jost py-2 px-4 mt-6 w-[300px] shadow-black shadow-lg hover:scale-110 transition duration-300 ease-in-out"
+            className="bg-[#002732] hover:bg-[#004B61] border-2  rounded-2xl text-white font-jost py-2 px-4 mt-6 w-[300px] shadow-none hover:scale-110 transition duration-300 ease-in-out"
             onClick={getoutEvents}
           >
             OUTGOING EVENTS
