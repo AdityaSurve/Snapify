@@ -176,7 +176,7 @@ async function fuc() {
 
 export default function Home() {
   return (
-    <div className="bg-bghome h-screen bg-no-repeat w-screen">
+    <div className="bg-bghome h-screen bg-cover w-screen">
       <div className="flex flex-col justify-center items-center gap-32 h-screen ">
         <span className="text-white text-[70px] text-center font-medium mt-24 font-jost">
           Bringing your vision to life,

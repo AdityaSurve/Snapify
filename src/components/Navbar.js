@@ -1,12 +1,25 @@
-import React,{useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import MobNav from "./MobNav";
 import MenuTwoToneIcon from "@mui/icons-material/MenuTwoTone";
 import { Link } from "react-router-dom";
 import MonochromePhotosIcon from "@mui/icons-material/MonochromePhotos";
 import PersonIcon from "@mui/icons-material/Person";
-import { Button, Menu, MenuItem } from '@material-ui/core';
-import { app, database, storage } from './firebaseConfig'
-import { collection, addDoc,getDoc, getDocs, doc, updateDoc, deleteDoc ,onSnapshot,query,where,setDoc, serverTimestamp} from "firebase/firestore";
+import { Button, Menu, MenuItem } from "@material-ui/core";
+import { app, database, storage } from "./firebaseConfig";
+import {
+  collection,
+  addDoc,
+  getDoc,
+  getDocs,
+  doc,
+  updateDoc,
+  deleteDoc,
+  onSnapshot,
+  query,
+  where,
+  setDoc,
+  serverTimestamp,
+} from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import {
   getAuth,
@@ -20,7 +33,7 @@ import {
 } from "firebase/auth";
 import { Autocomplete, TextField } from "@mui/material";
 
-function Navbar({newid,setnewid}) {
+function Navbar({ newid, setnewid }) {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -37,35 +50,31 @@ function Navbar({newid,setnewid}) {
   const showMenu = () => {
     setActive(!active);
   };
-  const handlecuruserprofile=()=>{
-    setnewid(user.uid)
-    nav("/profile")
-}
-  const [profilesearch,setprofilesearch]=useState([]);
-  const collectionRef = collection(database, 'users');
-  useEffect(()=>{
+  const handlecuruserprofile = () => {
+    setnewid(user.uid);
+    nav("/profile");
+  };
+  const [profilesearch, setprofilesearch] = useState([]);
+  const collectionRef = collection(database, "users");
+  useEffect(() => {
     handleSearch();
-  },[])
-  const handleSearch= async ()=>{
-   
-    try{
-    const querySnapshot = await getDocs(collectionRef,'users');
-      var temp=[];
-    querySnapshot.forEach((doc) => {
+  }, []);
+  const handleSearch = async () => {
+    try {
+      const querySnapshot = await getDocs(collectionRef, "users");
+      var temp = [];
+      querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         // setuser(doc.data())
         console.log(doc.data());
-        temp.push({id:doc.data().uid,label:doc.data().name});
-        
+        temp.push({ id: doc.data().uid, label: doc.data().name });
       });
 
-      setprofilesearch([...temp])
-      
-    }
-    catch{
+      setprofilesearch([...temp]);
+    } catch {
       // seterr(true)
     }
-  }
+  };
 
   return (
     <div className="bg-[#00000070] fixed z-[10000]">
@@ -77,11 +86,9 @@ function Navbar({newid,setnewid}) {
           <MonochromePhotosIcon
             style={{ color: "#FFFFFF", width: "30px", height: "30px" }}
           />
-          <div className=" text-white  text-2xl font-ibm ">
-            <span className=" font-bold">LENS</span>
-            <span className=" font-light ">life</span>
+          <div className=" text-white  text-2xl font-playfair ">
+            <span className=" font-bold">SNAPIFY</span>
           </div>
-            
         </div>
         {/* <div className="flex flex-row justify-end items-center "> */}
 
@@ -92,7 +99,10 @@ function Navbar({newid,setnewid}) {
             </div>
           </Link>
           <Link to="/profile">
-            <div className=" hover:scale-110 transition duration-300 ease-in-out  text-white  text-xl font-medium font-jost " onClick={handlecuruserprofile}>
+            <div
+              className=" hover:scale-110 transition duration-300 ease-in-out  text-white  text-xl font-medium font-jost "
+              onClick={handlecuruserprofile}
+            >
               PROFILE
             </div>
           </Link>
@@ -148,46 +158,71 @@ function Navbar({newid,setnewid}) {
                 onChange={(e)=>{handleSearch(e.target.value)}}
               ></input> */}
 
-<Autocomplete
-      disablePortal
-      id="combo-box-demo"
-      options={profilesearch}
-      onChange={(e,index)=>{
-        console.log(index.id);
-        setnewid(index.id)
-        nav("/profile")
-      }}
-      sx={{ width: 300 ,color:"white",opacity:"1",backgroundColor:"white"}}
-      renderInput={(params) => <TextField style={{color:"white",opacity:"1"}}  {...params} label="USER NAME" />}
-    />
-              
+              <Autocomplete
+                disablePortal
+                id="combo-box-demo"
+                options={profilesearch}
+                onChange={(e, index) => {
+                  console.log(index.id);
+                  setnewid(index.id);
+                  nav("/profile");
+                }}
+                sx={{
+                  width: 300,
+                  color: "white",
+                  opacity: "1",
+                  backgroundColor: "white",
+                }}
+                renderInput={(params) => (
+                  <TextField
+                    style={{ color: "white", opacity: "1" }}
+                    {...params}
+                    label="USER NAME"
+                  />
+                )}
+              />
+
               {/* <button
                 type="submit"
                 class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Search
               </button> */}
-
-              
             </div>
-           
           </form>
           {/* done */}
-          
+
           {/* try */}
           <div>
-      <Button onClick={handleClick}><PersonIcon style={{ color: "#FFFFFF", width: "30px", height: "30px" }}/></Button>
-      <Menu
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        <MenuItem onClick={handlecuruserprofile}>PROFILE</MenuItem>
-        <MenuItem onClick={()=>{signOut(auth); nav("/")}}>LOG OUT</MenuItem>
-        <MenuItem onClick={()=>{ nav("/purchase")}}>PURCHASED</MenuItem>
-      </Menu>
-    </div>
+            <Button onClick={handleClick}>
+              <PersonIcon
+                style={{ color: "#FFFFFF", width: "30px", height: "30px" }}
+              />
+            </Button>
+            <Menu
+              anchorEl={anchorEl}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem onClick={handlecuruserprofile}>PROFILE</MenuItem>
+              <MenuItem
+                onClick={() => {
+                  signOut(auth);
+                  nav("/");
+                }}
+              >
+                LOG OUT
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  nav("/purchase");
+                }}
+              >
+                PURCHASED
+              </MenuItem>
+            </Menu>
+          </div>
         </div>
       </div>
       <MobNav showMenu={showMenu} active={active} />

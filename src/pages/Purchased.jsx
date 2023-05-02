@@ -18,7 +18,7 @@ import {
   where,
   setDoc,
   arrayUnion,
-  serverTimestamp
+  serverTimestamp,
 } from "firebase/firestore";
 import { async } from "@firebase/util";
 import {
@@ -38,37 +38,39 @@ import { useNavigate } from "react-router-dom";
 
 export default function Purchased() {
   const [cardarr, setcardarr] = useState([]);
-  const [fireuser, setfireuser] = useState({})
+  const [fireuser, setfireuser] = useState({});
   const auth = getAuth();
   const user = auth.currentUser;
   useEffect(() => {
-   getfireuser();
-    getImages()
-  }, [])
+    getfireuser();
+    getImages();
+  }, []);
 
   console.log(user);
 
   const getfireuser = async () => {
     const docRef = doc(database, "users", user.uid);
     const docSnap = await getDoc(docRef);
-    setfireuser(docSnap.data())
-  }
+    setfireuser(docSnap.data());
+  };
 
   const getImages = async () => {
-    
-    const q = query(collection(database, "images"), where("purchasedby", "==", user.uid));
-const unsubscribe = onSnapshot(q, (querySnapshot) => {
-  const cities = [];
-  var arr = [];
-  querySnapshot.forEach((item) => {
-    arr.push({ array: item.data(), id: item.id });
-  });
-  console.log(arr,'jvmjcmchcmhcmv,jv');
-  setcardarr([...arr]);
-//   console.log("Current cities in CA: ", cities.join(", "));
-});
+    const q = query(
+      collection(database, "images"),
+      where("purchasedby", "==", user.uid)
+    );
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const cities = [];
+      var arr = [];
+      querySnapshot.forEach((item) => {
+        arr.push({ array: item.data(), id: item.id });
+      });
+      console.log(arr, "jvmjcmchcmhcmv,jv");
+      setcardarr([...arr]);
+      //   console.log("Current cities in CA: ", cities.join(", "));
+    });
 
-// console.log(cardarr);
+    // console.log(cardarr);
 
     // const collectionRef = collection(database, 'images');
     // const nameQuery = query(collectionRef, where("createdby", "==", user.uid))
@@ -82,29 +84,34 @@ const unsubscribe = onSnapshot(q, (querySnapshot) => {
     //     })
     //   })
     // setcardarr([...arr]);
-  }
+  };
 
   return (
     <div>
-    <Navbar />
-    <div className='bg-[#61876E] h-screen '>
-    <div className="  bg-[#61876E]  p-4" id="gallery">
-                <p className="mt-16  text-white font-ibm font-bold text-[50px]">Purchased by {fireuser.name}</p>
-                <div className="md:grid md:grid-cols-2 items-center gap-16 w-full justify-center">
-           {
-            cardarr?.map((item,index)=>{
-                console.log(item.array);
-                return (
-
-                    <Post id={item.id} caption={item.array.caption} imageurl={item.array.url} name={item.array.name} likes={item.array.likes} createdby={item.array.createdby} watermark={0}/>
-
-
-                 )
-            },[])
-           } 
+      <Navbar />
+      <div className="bg-[#022532] h-screen ">
+        <div className="  bg-[#022532]  p-4" id="gallery">
+          <p className="mt-16  text-white font-ibm font-bold text-[50px]">
+            Purchased by {fireuser.name}
+          </p>
+          <div className="md:grid md:grid-cols-2 items-center gap-16 w-full justify-center">
+            {cardarr?.map((item, index) => {
+              console.log(item.array);
+              return (
+                <Post
+                  id={item.id}
+                  caption={item.array.caption}
+                  imageurl={item.array.url}
+                  name={item.array.name}
+                  likes={item.array.likes}
+                  createdby={item.array.createdby}
+                  watermark={0}
+                />
+              );
+            }, [])}
+          </div>
         </div>
-            </div>
-            </div>
-            </div>
-  )
+      </div>
+    </div>
+  );
 }

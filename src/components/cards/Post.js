@@ -208,27 +208,28 @@ export const Post = ({
       className="mt-10 ml-10 p-3 w-[300px] md:w-[640px] "
     >
       <div className="flex flex-row justify-between">
-      <div
-        className="flex flex-row gap-2 text-white text-xl  font-jost "
-        onClick={handleGotoProfile}
-      >
-        <AccountCircleIcon />
-        <span>{name}</span>
+        <div
+          className="flex flex-row gap-2 text-white text-xl  font-jost "
+          onClick={handleGotoProfile}
+        >
+          <AccountCircleIcon />
+          <span>{name}</span>
         </div>
         {watermark != 0 ? (
-                <ShoppingCartIcon
-                 
-                  onClick={() => {
-                    handlePayment("rzp_test_Pw7oOZCGeCRVYw", data.name);
-                  }}
-                  style={{ width: "30px", height: "30px" ,color:"white" }}
-                />
-              ) : (
-                <a target="_blank" href={imageurl}>
-                  <DownloadIcon style={{ width: "40px", height: "40px" }} />
-                </a>
-              )}
-      
+          <ShoppingCartIcon
+            onClick={() => {
+              handlePayment("rzp_test_Pw7oOZCGeCRVYw", data.name);
+            }}
+            style={{ width: "30px", height: "30px", color: "white" }}
+          />
+        ) : (
+          <a target="_blank" href={imageurl}>
+            <DownloadIcon
+              style={{ width: "40px", height: "40px" }}
+              className="text-white"
+            />
+          </a>
+        )}
       </div>
       <img
         draggable="false"
@@ -236,8 +237,7 @@ export const Post = ({
         className="w-[400px] md:w-[652px] md:h-[360px] border-8 shadow-lg border-[#003240] mt-2 "
       ></img>
       {watermark !== 0 && (
-        <p className="absolute text-xl md:text-3xl text-white font-semibold top-[160px] left-[55%] md:top-[350px] md:left-[70%] font-grotesk "
-        >
+        <p className="absolute text-xl md:text-3xl text-white font-semibold top-[160px] left-[55%] md:top-[350px] md:left-[70%] font-grotesk ">
           watermark
         </p>
       )}
@@ -249,7 +249,7 @@ export const Post = ({
           </div>
           {createdby === user.uid && (
             <div onClick={handleDelete} className="text-white font-grotesk">
-              <FavoriteIcon />
+              <DeleteIcon />
               <span className="ml-1">Delete post</span>
             </div>
           )}
@@ -277,7 +277,6 @@ export const Post = ({
                   );
                 })}
               </p>
-            
             </div>
           </div>
         )}
