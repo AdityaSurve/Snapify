@@ -68,7 +68,7 @@ function Navbar({newid,setnewid}) {
   }
 
   return (
-    <div className="bg-black opacity-70 fixed z-[10000]">
+    <div className="bg-[#00000070] fixed z-[10000]">
       <div className="h-[100px] w-[100px] top-10 right-2.5 p-8 scale-150 md:hidden ">
         <MenuTwoToneIcon style={{ color: "#FFFFFF" }} onClick={showMenu} />
       </div>

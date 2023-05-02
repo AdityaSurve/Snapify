@@ -17,12 +17,15 @@ export default function Events() {
     <div>
       <Navbar />
 
-      <div className="bg-eventsbg bg-cover bg-fixed  h-screen flex flex-col justify-start items-start p-10">
-        <p className="font-jost text-white font-bold text-[100px] mt-10 p-10">
+      <div className="bg-eventsbg flex h-screen bg-cover bg-no-repeat min-w-full overflow-y-hidden">
+        <div className="flex flex-col  justify-center items-start ">
+
+        <p className="font-jost text-white font-bold text-[75px] md:text-[100px] mt-10 p-10">
           EVENTS
         </p>
 
         <EventCard />
+        </div>
       </div>
     </div>
   );
