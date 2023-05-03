@@ -414,13 +414,13 @@ export const Profile = ({ newid, setnewid }) => {
           </div>
         </form>
       ) : (
-        <form class="bg-[#61876E] p-6 shadow-md ">
+        <form class="bg-white p-6 shadow-md ">
           <div class="mb-4">
             <label class="block text-black font-bold mb-2" for="desc">
               Description
             </label>
             <textarea
-              class="form-textarea mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              class="form-textarea mt-1 block w-full rounded-md border-2 border-[#002732] shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               id="desc"
               name="desc"
               onChange={(event) => handleInput1(event)}
@@ -431,7 +431,7 @@ export const Profile = ({ newid, setnewid }) => {
               Title
             </label>
             <textarea
-              class="form-textarea mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              class="form-textarea mt-1 block w-full rounded-md border-2 border-[#002732] shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               id="title"
               name="title"
               onChange={(event) => handleInput1(event)}
@@ -442,7 +442,7 @@ export const Profile = ({ newid, setnewid }) => {
               Location
             </label>
             <textarea
-              class="form-textarea mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              class="form-textarea mt-1 block w-full rounded-md border-2 border-[#002732] shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               id="loc"
               name="loc"
               onChange={(event) => handleInput1(event)}
@@ -452,7 +452,7 @@ export const Profile = ({ newid, setnewid }) => {
           <div class="flex justify-end">
             <button
               onClick={handleaddEvent}
-              class="bg-[#AA5656]  text-white font-bold py-2 px-4 rounded"
+              class="bg-[#002732]  text-white font-bold py-2 px-4 rounded"
             >
               Request Event
             </button>
